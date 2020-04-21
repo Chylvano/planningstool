@@ -21,10 +21,15 @@ $result= getOne();
         <div class="img-thumbnail col">
         <a class="backbutton" href="index.php"><i class="fas fa-long-arrow-alt-left"></i> Terug</a><br>
         <div class="row mr-3 ml-3">
+            <div class="mt-3">
                 <h2><?=$result['name']?></h2>
+            </div>
                 <hr>
                 <div class="row">
-                <p class="ml-5">expansions: <?= $result['expansions'] ?></p>
+                <?php if ($result['expansions'] === null) {
+                $result['expansions'] = "geen";
+                }?>
+                <div class="ml-5"><a>expansions: </a><?= $result['expansions']?></div></p>
                 <div class="vl ml-4"></div>
                 <p class="ml-4">skills: <?= $result['skills'] ?></p>
                 <div class="vl ml-4"></div>
@@ -34,7 +39,10 @@ $result= getOne();
                 <div class="vl mb-5 ml-4"></div>
                 <p class="ml-4">uitlegminuten: <?= $result['explain_minutes'] ?></p>
             </div>
+            <div class="jumbotron">
+                <h2>Description</h2>
             <p><?= $result['description'] ?></p>
+            </div>
                 <img class="w-25 ml-5 mt-5 mr-5" src="assets/images/<?=$result['image']?>">
                 <h2 class="ml-5 mt-5"><?=$result['youtube']?></h2>
                 <p class="mt-4">url: <a href="<?= $result['url']?>"><?= $result['url'] ?></a></p>

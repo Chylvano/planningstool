@@ -11,7 +11,7 @@
 </head>
 <body>
     <form>
-        <input></input>
+        <input type="text"></input>
         <input type="submit" value="Submit">
     </form>
 </body>
