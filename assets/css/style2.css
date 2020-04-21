@@ -1,0 +1,14 @@
+hr {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 97%;               
+    background-color: black;
+    height: 1px;
+  }
+
+  .vl {
+    border-left: 1.5px solid black;
+    height: 50px;
+    margin-top: -16px;
+  }
