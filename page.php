@@ -29,7 +29,7 @@ $result= getOne();
                 <?php if ($result['expansions'] === null) {
                 $result['expansions'] = "geen";
                 }?>
-                <div class="ml-5"><a>expansions: </a><?= $result['expansions']?></div></p>
+                <div class="ml-5 mb-5"><a>expansions: </a><?= $result['expansions']?></div></p>
                 <div class="vl ml-4"></div>
                 <p class="ml-4">skills: <?= $result['skills'] ?></p>
                 <div class="vl ml-4"></div>
