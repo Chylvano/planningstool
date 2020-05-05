@@ -66,16 +66,13 @@ function getAfspraak(){
     return $result;
 }
 
-function getGames(){
+function getOneAfspraak(){
     $conn = connect();
-    $stmt = $conn->prepare('SELECT * FROM games');
-    $stmt->execute();
-    $result = $stmt->fetchAll();
+    $query = $conn->prepare("SELECT * FROM planning where id=:id");
+    $query->execute(['id' => $_GET['id']]);
+    $result = $query->fetch();
     return $result;
 }
-
-
-
 
 ?>
 

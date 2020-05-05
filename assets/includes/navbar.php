@@ -5,7 +5,6 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="plangame.php">Game plannen</a>
       <a class="nav-item nav-link" href="afspraken.php">Planning</a>
     </div>
   </div>

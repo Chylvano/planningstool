@@ -15,17 +15,26 @@ $row = getAfspraak();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="text-center">
     <div class="container">
       <form action="update.php" method="post">
-        <input type="time" name="date" placeholder="time" value="<?php echo 
-            $row["date"] ?>" required>
-        <input type="text" name="spelers" placeholder="spelers" value="<?php echo 
+        <p class="my-4">
+            <label for="spelers">Spelers:</label>
+            <input type="text" name="spelers" id="spelers" value="<?php echo 
             $row["spelers"] ?>" required>
-        <input type="text" name="uitlegger" placeholder="uitlegger" value="<?php echo 
+        </p>
+        <p class="my-4">
+            <label for="uitlegger">uitlegger:</label>
+            <input type="text" name="uitlegger" id="uitlegger" value="<?php echo 
             $row["uitlegger"] ?>" required>
+        </p>
+        <p class="my-4">
+            <label for="date">Tijd:</label>
+            <input type="time" name="date" id="date" value="<?php echo 
+            $row["date"] ?>" required>
+        </p>
         <input type="number" name="id" value="<?php echo $id ?>" hidden>
-        <button type="submit">submit</button>
+        <button type="submit" class="btn btn-primary">submit</button>
     </form>
 </body>
 </html>

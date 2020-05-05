@@ -2,7 +2,6 @@
 require ("assets/includes/functions.php");
 require ("assets/includes/navbar.php");
 $result = afspraken();
-$game = getGames();
 ?>
 
 <!DOCTYPE html>
@@ -18,14 +17,14 @@ $game = getGames();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="container">
+<div class="">
   <table class="table">
     <thead>
       <tr>
         <th>game</th>
+        <th>Hoelaat</th>
         <th>uitlegger</th>
         <th>Speeltijd</th>
-        <th>Hoelaat</th>
         <th>Opties</th>
       </tr>
     </thead>
@@ -33,11 +32,15 @@ $game = getGames();
      foreach ($result as $row) {
         ?>
        <tr>
+       <a href="detail.php">
+       <td><h2><?=$row["name"]?></h2></td>
        <td><h2><?=$row["date"]?></h2></td>
        <td><h2><?=$row["uitlegger"]?></h2></td>
-       <td><h2><?=$row["spelers"]?></h2></td> 
-       <td><h2><?=$row["date"]?></h2></td>
+       <td><h2><?=$row["speeltijd"]?> Minuten</h2></td>
+       </a>
        <td>
+            <a href="detail.php?id=<?php echo $row['id']; ?>"
+            class="btn btn-dark">informatie</a>
             <a href="updateform.php?id=<?php echo $row['id']; ?>"
             class="btn btn-info">edit</a>
             <a href="delete.php?id=<?php echo $row['id']; ?>" onclick="return confirm('do you want to delete?')"confirm

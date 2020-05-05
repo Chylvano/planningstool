@@ -1,7 +1,8 @@
 <?php
 require ("assets/includes/functions.php");
 require ("assets/includes/navbar.php");
-$result = getAll();
+$result = getOne();
+$description = $result["description"];
 ?>
 
 <!DOCTYPE html>
@@ -16,29 +17,35 @@ $result = getAll();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="text-center">
     <form action="insert.php" method="post">
-        <p>
-        <label for="games">Kies een spel:</label>
-            <select id="games">
-            <?php foreach ($game as $game) {?>
-              <option value=" <?=$game["name"]?>"></option>
-            <?php  }?>
-            </select>
-        </p>
-        <p>
+        <h3 class="my-5">
+            Je plant nu <?=$result["name"]?>
+        </h3>
+        <p class="my-4">
             <label for="spelers">Spelers:</label>
             <input type="text" name="spelers" id="spelers" required>
         </p>
-        <p>
+        <p class="my-4">
             <label for="uitlegger">uitlegger:</label>
             <input type="text" name="uitlegger" id="uitlegger" required>
         </p>
-        <p>
+        <p class="my-4">
             <label for="date">Tijd:</label>
             <input type="time" name="date" id="date" required>
         </p>
-        <input type="number" name="id" value="<?php echo $id ?>" hidden>
+        <p>
+            <input type="text" name="name" id="name" value="<?=$result["name"]?>" hidden>
+            <input type="text" name="speeltijd" id="speeltijd" value="<?=$result["play_minutes"]?>" hidden>
+            <input type="text" name="image" id="image" value="<?=$result["image"]?>" hidden>
+            <input type="text" name="description" id="description" value="<?=htmlspecialchars($description)?>" hidden>
+            <input type="text" name="expansions" id="expansions" value="<?=$result["expansions"]?>" hidden>
+            <input type="text" name="skills" id="skills" value="<?=$result["skills"]?>" hidden>
+            <input type="text" name="url" id="url" value="<?=$result["url"]?>" hidden>
+            <input type="text" name="min_players" id="min_players" value="<?=$result["min_players"]?>" hidden>
+            <input type="text" name="max_players" id="max_players" value="<?=$result["max_players"]?>" hidden>
+            <input type="text" name="explain_minutes" id="explain_minutes" value="<?=$result["explain_minutes"]?>" hidden>
+        </p>
         <input type="submit" class="btn btn-primary" name="save">
     </form>
 </body>
